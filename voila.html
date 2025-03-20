@@ -1,32 +1,38 @@
-{% extends 'planes.html' %} {% block content %}
+{% extends 'planes.html' %}  <!-- Extends the base template 'planes.html' -->
+{% block content %}  <!-- Start of the content block that will be inserted into the base template -->
 
-<div style="background-color: black; height: 740vh">
-  <div class="row justify-content-center">
-    <div class="col-md-6 col-sm-12 col-xs-12 pt-5">
-      <div class="card border-0 p-3 shadow-sm text-center">
-        <form method="POST" class="card border-0 p-3 shadow-sm">
-          {% for item in items %}
-          <div class="w-65">
-            <div class="card bg-dark text-white">
-              <div class="card-body">
-                <h3>Departing Airport: {{ item.departure }}</h3>
-                <h5>Airline: {{ item.airline }}</h5>
-                <h5>Departing Terminal: {{ item.dep_term }}</h5>
-                <h5>Departing Gate: {{ item.dep_gate }}</h5>
-                <h5>Time of Departure: {{item.depest_t }}</h5>
-                <h5>Flight Number: {{ item.flight_number }}</h5>
-                <h4>Arrival Airport: {{ item.arrival }}</h4>
-                <h5>Airline: {{ item.airline }}</h5>
-                <h5>Arrival Terminal: {{ item.arr_term }}</h5>
-                <h5>Estimated Time of Arrival: {{ item.arrest_t }}</h5>
+<div style="background-color: black; height: 740vh">  <!-- Main container with black background and fixed height -->
+  <div class="row justify-content-center">  <!-- Bootstrap row with centered content -->
+    <div class="col-md-6 col-sm-12 col-xs-12 pt-5">  <!-- Responsive column: half-width on medium screens, full-width on small screens, with top padding -->
+      <div class="card border-0 p-3 shadow-sm text-center">  <!-- Card with no border, padding, slight shadow, and centered text -->
+        <form method="POST" class="card border-0 p-3 shadow-sm">  <!-- POST form styled as a card (note: form inside a card is unusual) -->
+          
+          {% for item in items %}  <!-- Loop through each flight item passed from the Flask route -->
+          <div class="w-65">  <!-- Container with 65% width (non-standard Bootstrap class) -->
+            <div class="card bg-dark text-white">  <!-- Dark card with white text for each flight -->
+              <div class="card-body">  <!-- Card body containing flight information -->
+                <!-- Flight departure information -->
+                <h3>Departing Airport: {{ item.departure }}</h3>  <!-- Departure airport name -->
+                <h5>Airline: {{ item.airline }}</h5>  <!-- Airline name -->
+                <h5>Departing Terminal: {{ item.dep_term }}</h5>  <!-- Departure terminal -->
+                <h5>Departing Gate: {{ item.dep_gate }}</h5>  <!-- Departure gate -->
+                <h5>Time of Departure: {{ item.depest_t }}</h5>  <!-- Estimated departure time -->
+                <h5>Flight Number: {{ item.flight_iata }}</h5>  <!-- Flight IATA code -->
+                
+                <!-- Flight arrival information -->
+                <h4>Arrival Airport: {{ item.arrival }}</h4>  <!-- Arrival airport name -->
+                <h5>Airline: {{ item.airline }}</h5>  <!-- Airline name (duplicated from above) -->
+                <h5>Arrival Terminal: {{ item.arr_term }}</h5>  <!-- Arrival terminal -->
+                <h5>Estimated Time of Arrival: {{ item.arrest_t }}</h5>  <!-- Estimated arrival time -->
               </div>
             </div>
           </div>
-          {% endfor %}
-        </form>
+          {% endfor %}  <!-- End of the for loop -->
+          
+        </form>  <!-- End of form -->
       </div>
     </div>
   </div>
 </div>
 
-{% endblock content %}
+{% endblock content %}  <!-- End of the content block -->

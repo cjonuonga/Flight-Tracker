@@ -1,10 +1,12 @@
-{% extends 'planes.html' %} {%block content%}
-<div style="background-color: #000000; height: 100vh">
-  <div class="container h-100">
-    <div class="row justify-content-center">
-      <div class="col-md-6 col-sm-12 col-xs-12 pt-5">
-        <form method="POST" class="card border-0 p-3 shadow-sm">
-          <div class="form-group">
+{% extends 'planes.html' %}  <!-- Extends the base template 'planes.html' -->
+{%block content%}  <!-- Start of the content block that will be inserted into the base template -->
+
+<div style="background-color: #000000; height: 100vh">  <!-- Main container with black background and full viewport height -->
+  <div class="container h-100">  <!-- Bootstrap container with full height -->
+    <div class="row justify-content-center">  <!-- Centered row -->
+      <div class="col-md-6 col-sm-12 col-xs-12 pt-5">  <!-- Responsive column: half-width on medium screens, full-width on small screens, with top padding -->
+        <form method="POST" class="card border-0 p-3 shadow-sm">  <!-- POST form styled as a card with no border, padding, and slight shadow -->
+          <div class="form-group">  <!-- Form group for departure airport input -->
             <input
               type="text"
               class="form-control"
@@ -12,7 +14,7 @@
               placeholder="Departing Airport"
             />
           </div>
-          <div class="form-group">
+          <div class="form-group">  <!-- Form group for arrival airport input -->
             <input
               type="text"
               class="form-control"
@@ -20,20 +22,21 @@
               placeholder="Arriving Airport"
             />
           </div>
-          <div class="form-group">
+          <div class="form-group">  <!-- Form group for flight number input -->
             <input
-              type="number"
+              type="text"
               class="form-control"
-              name="fl_num"
+              name="fl_iata"
               placeholder="Flight Number"
             />
           </div>
-          <div class="form-group">
-            <button class="btn btn-info btn-block">Get Flight Info</button>
+          <div class="form-group">  <!-- Form group for submit button -->
+            <button class="btn btn-info btn-block">Get Flight Info</button>  <!-- Submit button with info color -->
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
-{% endblock content %}
+
+{% endblock content %}  <!-- End of the content block -->
